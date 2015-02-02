@@ -24,5 +24,32 @@ namespace AddressBook
             this.main = arg0;
             InitializeComponent();
         }
+
+
+        private void menuAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuFind_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuRefresh_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
