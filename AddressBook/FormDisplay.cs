@@ -72,15 +72,12 @@ namespace AddressBook
 
         private void menuEdit_Click(object sender, EventArgs e)
         {
-            FormAddEntry f = new FormAddEntry(this, FormAddEntry.FormRole.ROLE_EDIT);
-            f.Owner = this;
-            f.Show();
-            f.Focus();
+            CallEdit();
         }
 
         private void menuDelete_Click(object sender, EventArgs e)
         {
-
+            CallDelete();
         }
 
         private void menuFind_Click(object sender, EventArgs e)
@@ -97,7 +94,7 @@ namespace AddressBook
         {
             listContacts.Items.Clear();
             
-            string cmd = "SELECT * FROM person";
+            string cmd = "SELECT * FROM person ORDER BY id ASC;";
             SqlCeCommand command = new SqlCeCommand(cmd, SQLconn);
             command.ExecuteNonQuery();
 
@@ -123,6 +120,16 @@ namespace AddressBook
 
         private void listContacts_DoubleClick(object sender, EventArgs e)
         {
+            CallEdit();
+        }
+
+        private void edytujToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CallEdit();
+        }
+
+        private void CallEdit()
+        {
             if (listContacts.SelectedItems.Count == 1)
             {
                 try
@@ -140,5 +147,29 @@ namespace AddressBook
             }
         }
 
+        private void CallDelete()
+        {
+            DialogResult toDelete = MessageBox.Show(this, "Czy na pewno chcesz usunąć ten wpis?", "Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (toDelete == DialogResult.Yes)
+            {
+                try
+                {
+                    int id = int.Parse(listContacts.SelectedItems[0].Text);
+                    SqlCeCommand query = new SqlCeCommand("DELETE FROM person WHERE id=" + id, SQLconn);
+                    query.ExecuteNonQuery();
+                    MessageBox.Show(this, "Wpis został usunięty!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CallRefresh();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Wystąpił błąd: " + ex.Message.ToString(), "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void cntxDelete_Click(object sender, EventArgs e)
+        {
+            CallDelete();
+        }
     }
 }

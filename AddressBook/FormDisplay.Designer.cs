@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.menuEdit = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +45,12 @@
             this.colAge = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cntxEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.cntxDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -113,6 +118,7 @@
             this.colEmail,
             this.colGender,
             this.colAge});
+            this.listContacts.ContextMenuStrip = this.contextMenuStrip1;
             this.listContacts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listContacts.FullRowSelect = true;
             this.listContacts.Location = new System.Drawing.Point(0, 24);
@@ -176,6 +182,29 @@
             this.lblStatus.Size = new System.Drawing.Size(140, 17);
             this.lblStatus.Text = "Połączenie z bazą danych";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cntxEdit,
+            this.cntxDelete});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Text = "Opcje...";
+            // 
+            // cntxEdit
+            // 
+            this.cntxEdit.Name = "cntxEdit";
+            this.cntxEdit.Size = new System.Drawing.Size(152, 22);
+            this.cntxEdit.Text = "Edytuj";
+            this.cntxEdit.Click += new System.EventHandler(this.edytujToolStripMenuItem_Click);
+            // 
+            // cntxDelete
+            // 
+            this.cntxDelete.Name = "cntxDelete";
+            this.cntxDelete.Size = new System.Drawing.Size(152, 22);
+            this.cntxDelete.Text = "Usuń";
+            this.cntxDelete.Click += new System.EventHandler(this.cntxDelete_Click);
+            // 
             // FormDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +220,7 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,6 +244,9 @@
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
         private System.Windows.Forms.ColumnHeader colGender;
         private System.Windows.Forms.ColumnHeader colAge;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cntxEdit;
+        private System.Windows.Forms.ToolStripMenuItem cntxDelete;
 
     }
 }

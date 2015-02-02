@@ -97,8 +97,6 @@ namespace AddressBook
             catch (Exception ex)
             {
                 MessageBox.Show(this, "Błąd: " + ex.Message.ToString(), "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-
             }
 
         }
@@ -137,8 +135,5 @@ namespace AddressBook
                     break;
             }
         }
-
-
-
     }
 }
