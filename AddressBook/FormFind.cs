@@ -56,6 +56,7 @@ namespace AddressBook
 
                     command.ExecuteNonQuery();
                     main.lblStatus1.Text = "Wyniki wyszukiwania";
+                    main.menuRefresh.Text = "Wyczyść... [F5]";
                     main.listContacts.Items.Clear();
 
                     using (var row = command.ExecuteReader())

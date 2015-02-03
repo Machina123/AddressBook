@@ -95,6 +95,7 @@ namespace AddressBook
 
         public void CallRefresh()
         {
+            menuRefresh.Text = "Odśwież... [F5]";
             listContacts.Items.Clear();
             lblStatus1.Text = "Gotowy do pracy";
             string cmd = "SELECT * FROM person ORDER BY id ASC;";
@@ -178,5 +179,11 @@ namespace AddressBook
         {
             CallDelete();
         }
+
+        private void menuAbout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Książka adresowa" + Environment.NewLine + "Autor: Patryk Ciepiela" + Environment.NewLine + "http://github.com/Machina123");
+        }
+
     }
 }

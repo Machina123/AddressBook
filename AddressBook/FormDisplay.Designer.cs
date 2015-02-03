@@ -35,6 +35,7 @@
             this.menuDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFind = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRefresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.listContacts = new System.Windows.Forms.ListView();
             this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -43,15 +44,15 @@
             this.colEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colGender = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colAge = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cntxEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.cntxDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatus1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -61,7 +62,8 @@
             this.menuEdit,
             this.menuDelete,
             this.menuFind,
-            this.menuRefresh});
+            this.menuRefresh,
+            this.menuAbout});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(718, 24);
@@ -107,6 +109,14 @@
             this.menuRefresh.Size = new System.Drawing.Size(95, 20);
             this.menuRefresh.Text = "Odśwież... [F5]";
             this.menuRefresh.Click += new System.EventHandler(this.menuRefresh_Click);
+            // 
+            // menuAbout
+            // 
+            this.menuAbout.Name = "menuAbout";
+            this.menuAbout.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this.menuAbout.Size = new System.Drawing.Size(118, 20);
+            this.menuAbout.Text = "O programie... [F6]";
+            this.menuAbout.Click += new System.EventHandler(this.menuAbout_Click);
             // 
             // listContacts
             // 
@@ -162,27 +172,11 @@
             // colGender
             // 
             this.colGender.Text = "Płeć";
+            this.colGender.Width = 80;
             // 
             // colAge
             // 
             this.colAge.Text = "Wiek";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblStatus,
-            this.lblStatus1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 259);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(718, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(140, 17);
-            this.lblStatus.Text = "Połączenie z bazą danych";
             // 
             // contextMenuStrip1
             // 
@@ -207,10 +201,27 @@
             this.cntxDelete.Text = "Usuń";
             this.cntxDelete.Click += new System.EventHandler(this.cntxDelete_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatus,
+            this.lblStatus1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 259);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(718, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(140, 17);
+            this.lblStatus.Text = "Połączenie z bazą danych";
+            // 
             // lblStatus1
             // 
             this.lblStatus1.Name = "lblStatus1";
-            this.lblStatus1.Size = new System.Drawing.Size(532, 17);
+            this.lblStatus1.Size = new System.Drawing.Size(563, 17);
             this.lblStatus1.Spring = true;
             this.lblStatus1.Text = "Gotowy do pracy.";
             this.lblStatus1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -230,9 +241,9 @@
             this.Load += new System.EventHandler(this.FormDisplay_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,7 +257,6 @@
         private System.Windows.Forms.ColumnHeader colSurname;
         private System.Windows.Forms.ColumnHeader colPhoneNo;
         private System.Windows.Forms.ColumnHeader colEmail;
-        private System.Windows.Forms.ToolStripMenuItem menuRefresh;
         private System.Windows.Forms.ToolStripMenuItem menuAdd;
         private System.Windows.Forms.ToolStripMenuItem menuEdit;
         private System.Windows.Forms.ToolStripMenuItem menuDelete;
@@ -260,6 +270,8 @@
         private System.Windows.Forms.ToolStripMenuItem cntxDelete;
         public System.Windows.Forms.ToolStripStatusLabel lblStatus1;
         public System.Windows.Forms.ListView listContacts;
+        private System.Windows.Forms.ToolStripMenuItem menuAbout;
+        public System.Windows.Forms.ToolStripMenuItem menuRefresh;
 
     }
 }
