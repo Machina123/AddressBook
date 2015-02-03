@@ -32,3 +32,4 @@ G:\Dokumenty\GitHub\AddressBook\AddressBook\obj\Debug\AddressBook.FormAddEntry.r
 G:\Dokumenty\GitHub\AddressBook\AddressBook\obj\Debug\AddressBook.FormDisplay.resources
 G:\Dokumenty\GitHub\AddressBook\AddressBook\obj\Debug\AddressBook.Properties.Resources.resources
 G:\Dokumenty\GitHub\AddressBook\AddressBook\obj\Debug\AddressBook.csproj.GenerateResource.Cache
+G:\Dokumenty\GitHub\AddressBook\AddressBook\obj\Debug\AddressBook.FormFind.resources

@@ -48,6 +48,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cntxEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.cntxDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblStatus1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -63,7 +64,7 @@
             this.menuRefresh});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(793, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(718, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -124,7 +125,7 @@
             this.listContacts.Location = new System.Drawing.Point(0, 24);
             this.listContacts.MultiSelect = false;
             this.listContacts.Name = "listContacts";
-            this.listContacts.Size = new System.Drawing.Size(793, 385);
+            this.listContacts.Size = new System.Drawing.Size(718, 257);
             this.listContacts.TabIndex = 1;
             this.listContacts.UseCompatibleStateImageBehavior = false;
             this.listContacts.View = System.Windows.Forms.View.Details;
@@ -169,10 +170,11 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 387);
+            this.lblStatus,
+            this.lblStatus1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 259);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(793, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(718, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -188,33 +190,43 @@
             this.cntxEdit,
             this.cntxDelete});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 48);
             this.contextMenuStrip1.Text = "Opcje...";
             // 
             // cntxEdit
             // 
             this.cntxEdit.Name = "cntxEdit";
-            this.cntxEdit.Size = new System.Drawing.Size(152, 22);
+            this.cntxEdit.Size = new System.Drawing.Size(107, 22);
             this.cntxEdit.Text = "Edytuj";
             this.cntxEdit.Click += new System.EventHandler(this.edytujToolStripMenuItem_Click);
             // 
             // cntxDelete
             // 
             this.cntxDelete.Name = "cntxDelete";
-            this.cntxDelete.Size = new System.Drawing.Size(152, 22);
+            this.cntxDelete.Size = new System.Drawing.Size(107, 22);
             this.cntxDelete.Text = "Usuń";
             this.cntxDelete.Click += new System.EventHandler(this.cntxDelete_Click);
+            // 
+            // lblStatus1
+            // 
+            this.lblStatus1.Name = "lblStatus1";
+            this.lblStatus1.Size = new System.Drawing.Size(532, 17);
+            this.lblStatus1.Spring = true;
+            this.lblStatus1.Text = "Gotowy do pracy.";
+            this.lblStatus1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblStatus1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // FormDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 409);
+            this.ClientSize = new System.Drawing.Size(718, 281);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.listContacts);
             this.Controls.Add(this.menuStrip1);
+            this.MinimumSize = new System.Drawing.Size(734, 200);
             this.Name = "FormDisplay";
-            this.Text = "Moje kontakty";
+            this.Text = "Książka adresowa";
             this.Load += new System.EventHandler(this.FormDisplay_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -232,7 +244,6 @@
         private System.Windows.Forms.ColumnHeader colID;
         private System.Windows.Forms.ColumnHeader colName;
         private System.Windows.Forms.ColumnHeader colSurname;
-        private System.Windows.Forms.ListView listContacts;
         private System.Windows.Forms.ColumnHeader colPhoneNo;
         private System.Windows.Forms.ColumnHeader colEmail;
         private System.Windows.Forms.ToolStripMenuItem menuRefresh;
@@ -247,6 +258,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cntxEdit;
         private System.Windows.Forms.ToolStripMenuItem cntxDelete;
+        public System.Windows.Forms.ToolStripStatusLabel lblStatus1;
+        public System.Windows.Forms.ListView listContacts;
 
     }
 }

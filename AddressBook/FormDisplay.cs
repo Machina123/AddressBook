@@ -82,7 +82,10 @@ namespace AddressBook
 
         private void menuFind_Click(object sender, EventArgs e)
         {
-
+            FormFind f = new FormFind(this);
+            f.Owner = this;
+            f.Show();
+            f.Focus();
         }
 
         private void menuRefresh_Click(object sender, EventArgs e)
@@ -93,7 +96,7 @@ namespace AddressBook
         public void CallRefresh()
         {
             listContacts.Items.Clear();
-            
+            lblStatus1.Text = "Gotowy do pracy";
             string cmd = "SELECT * FROM person ORDER BY id ASC;";
             SqlCeCommand command = new SqlCeCommand(cmd, SQLconn);
             command.ExecuteNonQuery();
@@ -149,21 +152,25 @@ namespace AddressBook
 
         private void CallDelete()
         {
-            DialogResult toDelete = MessageBox.Show(this, "Czy na pewno chcesz usunąć ten wpis?", "Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (toDelete == DialogResult.Yes)
+            if (listContacts.SelectedItems.Count == 1)
             {
-                try
+                DialogResult toDelete = MessageBox.Show(this, "Czy na pewno chcesz usunąć ten wpis?", "Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (toDelete == DialogResult.Yes)
                 {
-                    int id = int.Parse(listContacts.SelectedItems[0].Text);
-                    SqlCeCommand query = new SqlCeCommand("DELETE FROM person WHERE id=" + id, SQLconn);
-                    query.ExecuteNonQuery();
-                    MessageBox.Show(this, "Wpis został usunięty!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CallRefresh();
+                    try
+                    {
+                        int id = int.Parse(listContacts.SelectedItems[0].Text);
+                        SqlCeCommand query = new SqlCeCommand("DELETE FROM person WHERE id=" + id, SQLconn);
+                        query.ExecuteNonQuery();
+                        MessageBox.Show(this, "Wpis został usunięty!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CallRefresh();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Wystąpił błąd: " + ex.Message.ToString(), "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Wystąpił błąd: " + ex.Message.ToString(), "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                
             }
         }
 
